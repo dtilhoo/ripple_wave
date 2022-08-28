@@ -4,10 +4,21 @@ Simple and easy to use ripple animation that can be wrapped in widgets to create
 
 <img src="https://user-images.githubusercontent.com/56429814/187089068-fb9b6b67-292e-430c-aa73-00e2ec38c26e.png" width="400" height="600">
 
-## Getting started
+## Installing
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add ripple_wave to your pubspec.yaml file.
+
+```yaml
+dependencies:
+  ripple_wave:
+```
+
+Import ripple_wave in files that it will be used.
+
+```dart
+import 'package:ripple_wave/ripple_wave.dart';
+
+```
 
 ## Usage
 
