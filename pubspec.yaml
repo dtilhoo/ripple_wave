@@ -1,7 +1,7 @@
 name: ripple_wave
-description: A new Flutter package project.
+description: Ripple animation for any flutter app
 version: 0.0.1
-homepage:
+homepage: https://github.com/dtilhoo/ripple_wave
 
 environment:
   sdk: ">=2.17.6 <3.0.0"
