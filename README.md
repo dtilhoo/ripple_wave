@@ -1,11 +1,10 @@
 Simple and easy to use ripple animation that can be wrapped in widgets to create beautiful ripple effects.
 
 ## Features
-<img src="https://user-images.githubusercontent.com/56429814/187089068-fb9b6b67-292e-430c-aa73-00e2ec38c26e.png" width="300" height="800">
 
+<img src="https://user-images.githubusercontent.com/56429814/187089068-fb9b6b67-292e-430c-aa73-00e2ec38c26e.png" width="400" height="600">
 
 ## Getting started
-
 
 TODO: List prerequisites and provide or point to information on how to
 start using the package.

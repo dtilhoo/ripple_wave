@@ -30,11 +30,10 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Ripple Demo"),
       ),
-      body: RippleWave(
-        childTween: Tween(begin: 0.2, end: 1),
-        duration: const Duration(seconds: 1),
-        child: const Icon(
-          Icons.emoji_emotions,
+      body: const RippleWave(
+        color: Colors.red,
+        child: Icon(
+          Icons.emoji_objects_outlined,
           size: 100,
           color: Colors.white,
         ),
