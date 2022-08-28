@@ -31,9 +31,8 @@ class DemoPage extends StatelessWidget {
         title: const Text("Ripple Demo"),
       ),
       body: const RippleWave(
-        color: Colors.red,
         child: Icon(
-          Icons.emoji_objects_outlined,
+          Icons.emoji_emotions,
           size: 100,
           color: Colors.white,
         ),
