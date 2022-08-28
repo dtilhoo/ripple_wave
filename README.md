@@ -2,7 +2,7 @@ Simple and easy to use ripple animation that can be wrapped in widgets to create
 
 ## Features
 
-![ripple_wave](https://user-images.githubusercontent.com/56429814/187088745-9c7c6b9f-b760-4c02-9245-58c0b6a398e3.png)
+![ripple_wave](https://user-images.githubusercontent.com/56429814/187088745-9c7c6b9f-b760-4c02-9245-58c0b6a398e3.png =250x250)
 
 
 ## Getting started
