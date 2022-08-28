@@ -31,7 +31,6 @@ class MyHomePage extends StatelessWidget {
         title: const Text("Ripple Demo"),
       ),
       body: RippleWave(
-        color: Colors.red,
         childTween: Tween(begin: 0.2, end: 1),
         duration: const Duration(seconds: 1),
         child: const Icon(
