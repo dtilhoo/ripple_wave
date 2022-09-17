@@ -30,8 +30,11 @@ class DemoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Ripple Demo"),
       ),
-      body: const RippleWave(
-        child: Icon(
+      body: RippleWave(
+        childTween: Tween(begin: 0.1, end: 1.0),
+        color: Colors.deepPurpleAccent,
+        repeat: false,
+        child: const Icon(
           Icons.emoji_emotions,
           size: 100,
           color: Colors.white,

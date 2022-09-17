@@ -13,10 +13,19 @@ class RippleWave extends StatefulWidget {
     this.childTween,
   }) : super(key: key);
 
+  ///Color of the ripple
   final Color color;
+
+  ///Widget inside the ripple
   final Widget child;
+
+  /// Tween effect of the child widget
   final Tween<double>? childTween;
+
+  ///Duration of the animation
   final Duration duration;
+
+  ///Repeat the animation. True by default
   final bool repeat;
   @override
   RippleWaveState createState() => RippleWaveState();
