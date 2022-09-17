@@ -1,6 +1,6 @@
 name: ripple_wave
-description: Ripple animation for any flutter app
-version: 0.0.1
+description: Simple and easy to use ripple animation that can be wrapped in widgets to create beautiful ripple effects
+version: 0.0.2
 homepage: https://github.com/dtilhoo/ripple_wave
 
 environment:
