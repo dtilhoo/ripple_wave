@@ -1,6 +1,6 @@
 name: ripple_wave
 description: Simple and easy to use ripple animation that can be wrapped in widgets to create beautiful ripple effects
-version: 0.0.2
+version: 0.1.3
 homepage: https://github.com/dtilhoo/ripple_wave
 
 environment:

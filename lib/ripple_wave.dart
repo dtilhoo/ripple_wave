@@ -11,6 +11,7 @@ class RippleWave extends StatefulWidget {
     this.repeat = true,
     required this.child,
     this.childTween,
+    this.animationController,
   }) : super(key: key);
 
   ///Color of the ripple
@@ -27,22 +28,28 @@ class RippleWave extends StatefulWidget {
 
   ///Repeat the animation. True by default
   final bool repeat;
+
+  ///optional animation controller to manually start or stop the animation
+  final AnimationController? animationController;
+
   @override
   RippleWaveState createState() => RippleWaveState();
 }
 
 class RippleWaveState extends State<RippleWave> with TickerProviderStateMixin {
   late AnimationController _controller;
+
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: widget.duration,
-      vsync: this,
-    );
+    _controller = widget.animationController ??
+        AnimationController(
+          duration: widget.duration,
+          vsync: this,
+        );
     if (widget.repeat) {
       _controller.repeat();
-    } else {
+    } else if (widget.animationController == null) {
       _controller.forward();
       Future.delayed(widget.duration).then((value) => _controller.stop());
     }
@@ -100,7 +107,7 @@ class _CurveWave extends Curve {
   @override
   double transform(double t) {
     if (t == 0 || t == 1) {
-      return 0.01;
+      return t;
     }
     return math.sin(t * math.pi);
   }
