@@ -1,7 +1,7 @@
 library ripple_wave;
 
 import 'package:flutter/material.dart';
-import 'dart:math' as math show sin, pi, sqrt;
+import 'dart:math' as math show sin, pi;
 
 class RippleWave extends StatefulWidget {
   const RippleWave({
@@ -12,6 +12,7 @@ class RippleWave extends StatefulWidget {
     required this.child,
     this.childTween,
     this.animationController,
+    this.waveCount = 5,
   }) : super(key: key);
 
   ///Color of the ripple
@@ -31,6 +32,9 @@ class RippleWave extends StatefulWidget {
 
   ///optional animation controller to manually start or stop the animation
   final AnimationController? animationController;
+
+  ///wave count
+  final int waveCount;
 
   @override
   RippleWaveState createState() => RippleWaveState();
@@ -66,6 +70,7 @@ class RippleWaveState extends State<RippleWave> with TickerProviderStateMixin {
     return CustomPaint(
       painter: _RipplePainter(
         _controller,
+        widget.waveCount,
         color: widget.color,
       ),
       child: Center(
@@ -115,17 +120,24 @@ class _CurveWave extends Curve {
 
 class _RipplePainter extends CustomPainter {
   _RipplePainter(
-    this.animation, {
+    this.animation,
+    this.waveCount, {
     required this.color,
   }) : super(repaint: animation);
   final Color color;
   final Animation<double> animation;
+  final int waveCount;
+
   void circle(Canvas canvas, Rect rect, double value) {
-    final double opacity = (1.0 - (value / 4.0)).clamp(0.0, 1.0);
+    final double maxRadius = rect.width / 2;
+    final double normalizedValue =
+        value / (waveCount + 1); // Normalize value based on wave count
+    final double radius =
+        maxRadius * normalizedValue; // Scale radius based on normalized value
+    final double opacity = (1.0 - normalizedValue)
+        .clamp(0.0, 1.0); // Compute opacity based on normalized value
     final Color newColor = color.withOpacity(opacity);
-    final double size = rect.width / 2;
-    final double area = size * size;
-    final double radius = math.sqrt(area * value / 4);
+
     final Paint paint = Paint()..color = newColor;
     canvas.drawCircle(
       rect.center,
@@ -142,7 +154,7 @@ class _RipplePainter extends CustomPainter {
       size.width,
       size.height,
     );
-    for (int wave = 0; wave <= 5; wave++) {
+    for (int wave = 0; wave <= waveCount; wave++) {
       circle(canvas, rect, wave + animation.value);
     }
   }

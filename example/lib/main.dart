@@ -64,6 +64,7 @@ class _DemoPageState extends State<DemoPage>
             color: Colors.deepPurpleAccent,
             repeat: false,
             animationController: animationController,
+            waveCount: 16,
             child: const Icon(
               Icons.emoji_emotions,
               size: 100,
