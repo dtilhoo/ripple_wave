@@ -55,7 +55,23 @@ class RippleWaveState extends State<RippleWave> with TickerProviderStateMixin {
       _controller.repeat();
     } else if (widget.animationController == null) {
       _controller.forward();
-      Future.delayed(widget.duration).then((value) => _controller.stop());
+      Future.delayed(widget.duration).then(
+        (value) => stopAnimation(),
+      );
+    }
+  }
+
+  Future stopAnimation() async {
+    try {
+      if (mounted) {
+        _controller.reset();
+      }
+
+      if (mounted && !_controller.isAnimating) {
+        _controller.stop();
+      }
+    } catch (e) {
+      debugPrint('Error: $e');
     }
   }
 
@@ -136,7 +152,7 @@ class _RipplePainter extends CustomPainter {
         maxRadius * normalizedValue; // Scale radius based on normalized value
     final double opacity = (1.0 - normalizedValue)
         .clamp(0.0, 1.0); // Compute opacity based on normalized value
-    final Color newColor = color.withOpacity(opacity);
+    final Color newColor = color.withValues(alpha: opacity);
 
     final Paint paint = Paint()..color = newColor;
     canvas.drawCircle(

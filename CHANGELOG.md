@@ -13,3 +13,7 @@ Can now manually start or stop the animation using an animation controller
 ## 0.1.4
 
 Optional parameter waveCount to override the default value
+
+## 0.1.5
+
+Fix controller animation reset
